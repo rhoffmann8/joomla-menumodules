@@ -14,7 +14,7 @@ While other more advanced menu-module managers exist, I needed something that me
   * Free/open source
   * [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
-Modules for individual menu items are presented with a simple ON/OFF switch. In addition the module list can be filtered by module name, on/off/changed status, or published/unpublished status. All changes are stored on the UI until the user clicks "Save changes", at which point the changes are written to the Joomla #__modules_menu table.
+Modules for individual menu items are presented with a simple ON/OFF/ALL switch. In addition the module list can be filtered by module name, on/off/changed status, or published/unpublished status. All changes are stored on the UI until the user clicks "Save changes", at which point the changes are written to the Joomla #__modules_menu table.
 
 Under the hood the following decisions are made for each module based on its current and modified state:
   * If the module is currently assigned to all pages and turned off for one, it will be changed to "All pages except" with the menu item in question being the exception.
