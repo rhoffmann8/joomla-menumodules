@@ -1,0 +1,66 @@
+#options {
+    height: 90px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+#options label {
+    width: 100px;
+}
+#options input,
+#options select,
+#error_message {
+    font-size: 12px;
+}
+#error_message {
+    margin: 5px 20px;
+}
+#list {
+    margin: 0px 20px;
+    text-align: left;
+    font-size: 12px;
+}
+.menumodule-item {
+    box-sizing: border-box;
+    float: left;
+    padding: 10px;
+    width: 33.33333333%;
+    border: 1px solid #CCC;
+}
+.menumodule-switch.on {
+    background: linear-gradient(#038403, #060);
+}
+.menumodule-switch.off {
+    background: linear-gradient(#FF4F4F, #F11);
+}
+.menumodule-switch.all {
+    background: linear-gradient(#475DFF, #0020FF);
+}
+.menumodule-item.dirty {
+    border: 1px solid #FF6767;
+}
+.menumodule-label {
+    float: left;
+    padding: 4px 0px;
+    width: 80%;
+    text-align: left;
+}
+
+.menumodule-switch {
+    float: right;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 45px;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 4px 0px;
+}
+.menumodule-id {
+    display: inline-block;
+    font-weight: bold;
+    width: 30px;
+}
+.clearfix {
+    clear: both;
+}
