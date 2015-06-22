@@ -12,7 +12,7 @@ When creating a new menu item in Joomla! the steps necessary for adding the desi
 
 This process becomes very tedious for a large amount of modules and the total amount of database writes is equal to the number of modules changed.
 
-This component takes the concept of the Menu Assignment panel on the Edit Module page and inverts it -- users can select a Menu Item from a list and assign modules to it as necssary, requiring only one database transaction to do so.
+This component takes the concept of the Menu Assignment panel on the Edit Module page and inverts it -- users can select a Menu Item from a list and assign modules to it as necessary, requiring only one database transaction to do so.
 
 While other more advanced menu-module managers exist, I needed something that met two requirements:
   * Free/open source
