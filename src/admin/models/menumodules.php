@@ -5,6 +5,9 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
 jimport('joomla.application.component.modellist');
+jimport('joomla.application.component.helper');
+
+require_once JPATH_ADMINISTRATOR.'/components/com_menus/helpers/menus.php';
 
 class MenuModulesModelMenuModules extends JModelList
 {
@@ -69,7 +72,7 @@ class MenuModulesModelMenuModules extends JModelList
             } else if ($module->menuid < 0) {
                 $item['status'] = 'off';
             } else {
-                $item['status'] = 'on';
+                $item['status'] = 'all';
             }
 
             $menuModules[$module->id] = $item;
@@ -88,6 +91,8 @@ class MenuModulesModelMenuModules extends JModelList
         if (empty($modules)) {
             return false;
         }
+
+        $preferSelected = JComponentHelper::getParams('com_menumodules')->get('prefer_selected');
 
         $moduleIds = array_map(function($a) {
             return $a->id;
@@ -130,8 +135,14 @@ class MenuModulesModelMenuModules extends JModelList
                 return $row['menuid'];
             }, $tmp);
 
-            //@todo add option to prefer converting all to selected or except
-            //default now is except
+            // if module is changed to all, delete all other entries and insert with menuid 0
+            if ($module->status == 'all') {
+                foreach ($menuIds[$module->id] as $id) {
+                    $this->addSql('delete', $id, $module->id);
+                }
+                $this->addSql('insert', 0, $module->id);
+                continue;
+            }
 
             if (empty($menuIds[$module->id])) {
                 // none
@@ -171,7 +182,17 @@ class MenuModulesModelMenuModules extends JModelList
                 // all
                 if ($module->status == 'off') {
                     $this->addSql('delete', 0, $module->id);
-                    $this->addSql('insert', -$menuId, $module->id);
+                    if ($preferSelected) {
+                        $menuTypes = MenusHelper::getMenuLinks();
+                        foreach ($menuTypes as $menuType) {
+                            foreach ($menuType->links as $link) {
+                                if ($link->value == $menuId) continue;
+                                $this->addSql('insert', $link->value, $module->id);
+                            }
+                        }
+                    } else {
+                        $this->addSql('insert', -$menuId, $module->id);
+                    }
                 }
             }
         }

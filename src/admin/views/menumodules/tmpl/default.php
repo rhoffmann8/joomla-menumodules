@@ -16,7 +16,7 @@ JHtml::_('behavior.formvalidation');
             <%= title %>
         </a>
     </div>
-    <div class="menumodule-switch">
+    <div class="menumodule-switch <%= status %>">
         <%= status %>
     </div>
     <div class="clearfix"></div>

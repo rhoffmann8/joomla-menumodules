@@ -13,6 +13,7 @@ class MenuModulesViewMenuModules extends JView
         $this->menuTypes = MenusHelper::getMenuLinks();
 
         JToolBarHelper::title(JText::_('COM_MENUMODULES'));
+        JToolBarHelper::preferences('com_menumodules');
 
         parent::display($tpl);
     }

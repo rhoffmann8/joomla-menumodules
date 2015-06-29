@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
     <fieldset
+        name="options"
+        label="COM_MENUMODULES_CONFIG_SETTINGS_LABEL"
+        description="COM_MENUMODULES_CONFIG_SETTINGS_DESC"
+    >
+        <field
+            name="prefer_selected"
+            type="radio"
+            label="COM_MENUMODULES_CONFIG_FIELD_PREFER_SELECTED"
+            description="COM_MENUMODULES_CONFIG_FIELD_PREFER_SELECTED_DESC"
+            default="0"
+        >
+            <option value="0">Prefer "All pages except"</option>
+            <option value="1">Prefer "Selected pages only"</option>
+        </field>
+    </fieldset>
+    <fieldset
         name="permissions"
         label="JCONFIG_PERMISSIONS_LABEL"
         description="JCONFIG_PERMISSIONS_DESC"
